@@ -3,9 +3,6 @@
 #include "bn_display.h"
 
 namespace nos {
-    // We might need different colliders for each sprite but this works for now
-    constexpr bn::fixed_size collider_size(16, 16);
-
     o3d::o3d(const bn::sprite_item& _sprite_item)
         : position(0, 16, 0),
           sprite_item(&_sprite_item)

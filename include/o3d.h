@@ -3,9 +3,6 @@
 #include "bn_optional.h"
 #include "bn_sprite_ptr.h"
 #include "bn_sprite_item.h"
-#include "bn_sprite_animate_actions.h"
-#include "bn_string_view.h"
-#include "bn_fixed_rect.h"
 
 #include "vec3.h"
 #include "camera3d.h"

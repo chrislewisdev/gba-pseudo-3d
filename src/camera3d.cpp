@@ -7,7 +7,7 @@ namespace nos {
         pitch(45),
         base_heading(0),
         scale(1),
-        affine_transform_ptr_xy(bn::sprite_affine_mat_ptr::create(affine_transform_xy)),
+        affine_transform_ptr_xz(bn::sprite_affine_mat_ptr::create(affine_transform_xz)),
         affine_transform_ptr_yz(bn::sprite_affine_mat_ptr::create(affine_transform_yz))
     {}
 
@@ -22,10 +22,10 @@ namespace nos {
     const mat4& camera3d::get_world_transform() const { return world_transform; }
 
     const bn::affine_mat_attributes& camera3d::get_affine_transform_xy() const { return affine_transform_xy; }
-    // const bn::affine_mat_attributes& camera3d::get_affine_transform_xy() const { return affine_transform_xy; }
-    // const bn::affine_mat_attributes& camera3d::get_affine_transform_yz() const { return affine_transform_yz; }
-    // const bn::sprite_affine_mat_ptr& camera3d::get_affine_transform_ptr_xy() const { return affine_transform_ptr_xy; }
-    // const bn::sprite_affine_mat_ptr& camera3d::get_affine_transform_ptr_yz() const { return affine_transform_ptr_yz; }
+    const bn::affine_mat_attributes& camera3d::get_affine_transform_xz() const { return affine_transform_xz; }
+    const bn::affine_mat_attributes& camera3d::get_affine_transform_yz() const { return affine_transform_yz; }
+    const bn::sprite_affine_mat_ptr& camera3d::get_affine_transform_ptr_xz() const { return affine_transform_ptr_xz; }
+    const bn::sprite_affine_mat_ptr& camera3d::get_affine_transform_ptr_yz() const { return affine_transform_ptr_yz; }
 
     void camera3d::update_camera(const nos::vec3& target, int _pitch, int _heading, bn::fixed _scale) {
         pitch = _pitch;
@@ -61,8 +61,8 @@ namespace nos {
         );
         
         update_transform_xy();
-        // update_transform_xy(up_axis);
-        // update_transform_yz(up_axis);
+        update_transform_xz(up_axis);
+        update_transform_yz(up_axis);
     }
 
     vec3 camera3d::to_screen(const vec3& v) {
@@ -82,32 +82,32 @@ namespace nos {
         );
     }
 
-    // void camera3d::update_transform_xy(const vec3& up_axis) {
-    //     auto scale_matrix = mat2::scale_inverse(scale + bn::fixed(0.05), scale);
-    //     auto perspective_matrix = inverse(mat2(right_axis.x, right_axis.y, up_axis.x, up_axis.y));
-    //     auto transform = scale_matrix * perspective_matrix;
+    void camera3d::update_transform_xz(const vec3& up_axis) {
+        auto scale_matrix = mat2::scale_inverse(scale + bn::fixed(0.05), scale);
+        auto perspective_matrix = inverse(mat2(right_axis.x, right_axis.z, up_axis.x, up_axis.z));
+        auto transform = scale_matrix * perspective_matrix;
 
-    //     affine_transform_xy.unsafe_set_register_values(
-    //         transform.a.data() >> 8,
-    //         transform.b.data() >> 8,
-    //         transform.c.data() >> 8,
-    //         transform.d.data() >> 8
-    //     );
-    //     affine_transform_ptr_xy.set_attributes(affine_transform_xy);
-    // }
+        affine_transform_xz.unsafe_set_register_values(
+            transform.a.data() >> 8,
+            transform.b.data() >> 8,
+            transform.c.data() >> 8,
+            transform.d.data() >> 8
+        );
+        affine_transform_ptr_xz.set_attributes(affine_transform_xy);
+    }
 
-    // void camera3d::update_transform_yz(const vec3& up_axis) {
-    //     auto scale_matrix = mat2::scale_inverse(scale + bn::fixed(0.05), scale);
-    //     auto perspective_matrix = inverse(mat2(right_axis.z, right_axis.y, up_axis.z, up_axis.y));
-    //     auto transform = scale_matrix * perspective_matrix;
+    void camera3d::update_transform_yz(const vec3& up_axis) {
+        auto scale_matrix = mat2::scale_inverse(scale + bn::fixed(0.05), scale);
+        auto perspective_matrix = inverse(mat2(right_axis.y, right_axis.z, up_axis.y, up_axis.z));
+        auto transform = scale_matrix * perspective_matrix;
 
-    //     affine_transform_yz.unsafe_set_register_values(
-    //         transform.a.data() >> 8,
-    //         transform.b.data() >> 8,
-    //         transform.c.data() >> 8,
-    //         transform.d.data() >> 8
-    //     );
-    //     affine_transform_ptr_yz.set_attributes(affine_transform_yz);
-    // }
+        affine_transform_yz.unsafe_set_register_values(
+            transform.a.data() >> 8,
+            transform.b.data() >> 8,
+            transform.c.data() >> 8,
+            transform.d.data() >> 8
+        );
+        affine_transform_ptr_yz.set_attributes(affine_transform_yz);
+    }
 }
 
