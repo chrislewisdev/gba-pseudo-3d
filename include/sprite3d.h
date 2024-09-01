@@ -8,15 +8,15 @@
 #include "camera3d.h"
 
 namespace nos {
-    class o3d {
+    class sprite3d {
         protected:
             vec3 position;
             bn::optional<bn::sprite_ptr> sprite;
             const bn::sprite_item* sprite_item;
 
         public:
-            o3d(const bn::sprite_item& _sprite_item);
-            virtual ~o3d() = default;
+            sprite3d(const bn::sprite_item& _sprite_item);
+            virtual ~sprite3d() = default;
 
             const vec3& get_position() const;
             void set_position(const vec3& _position);

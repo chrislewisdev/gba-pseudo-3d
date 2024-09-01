@@ -2,7 +2,7 @@
 #include "bn_sprite_ptr.h"
 #include "bn_keypad.h"
 
-#include "o3d.h"
+#include "sprite3d.h"
 #include "camera3d.h"
 #include "bg3d.h"
 
@@ -15,8 +15,8 @@ int main()
     bn::core::init();
 
     nos::camera3d camera;
-    nos::o3d player(bn::sprite_items::fred_side_profile);
-    nos::o3d npc(bn::sprite_items::fred_side_profile);
+    nos::sprite3d player(bn::sprite_items::fred_side_profile);
+    nos::sprite3d npc(bn::sprite_items::fred_side_profile);
     nos::bg3d floor(bn::affine_bg_items::garden_floor);
     nos::bg3d ceiling(bn::affine_bg_items::garden_ceiling, 32);
 

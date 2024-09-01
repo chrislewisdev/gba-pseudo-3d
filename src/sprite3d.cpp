@@ -1,28 +1,28 @@
-#include "o3d.h"
+#include "sprite3d.h"
 
 #include "bn_display.h"
 
 namespace nos {
-    o3d::o3d(const bn::sprite_item& _sprite_item)
+    sprite3d::sprite3d(const bn::sprite_item& _sprite_item)
         : position(0, 16, 0),
           sprite_item(&_sprite_item)
     {
     }
 
-    const vec3& o3d::get_position() const {
+    const vec3& sprite3d::get_position() const {
         return position;
     }
 
-    void o3d::set_position(const vec3& _position) {
+    void sprite3d::set_position(const vec3& _position) {
         position = _position;
     }
 
-    vec3 o3d::get_screen_position(const camera3d& camera) const {
+    vec3 sprite3d::get_screen_position(const camera3d& camera) const {
         // Translation was supposed to be part of the world transform but that was broken so we just do it manually :(
         return (position - camera.get_position()) * camera.get_world_transform() * camera.get_scale();
     }
 
-    void o3d::update(nos::camera3d& camera) {
+    void sprite3d::update(nos::camera3d& camera) {
         vec3 screen_position = get_screen_position(camera);
 
         // Check if sprite is on/off screen
