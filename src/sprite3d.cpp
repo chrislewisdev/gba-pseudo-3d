@@ -17,13 +17,8 @@ namespace nos {
         position = _position;
     }
 
-    vec3 sprite3d::get_screen_position(const camera3d& camera) const {
-        // Translation was supposed to be part of the world transform but that was broken so we just do it manually :(
-        return (position - camera.get_position()) * camera.get_world_transform() * camera.get_scale();
-    }
-
     void sprite3d::update(nos::camera3d& camera) {
-        vec3 screen_position = get_screen_position(camera);
+        vec3 screen_position = camera.to_screen(position);
 
         // Check if sprite is on/off screen
         constexpr int clip_left = -bn::display::width() / 2 - 32;

@@ -9,7 +9,7 @@
 namespace nos {
     class camera3d {
         private:
-            int pitch, base_heading, heading;
+            int pitch, heading;
             bn::fixed scale;
             vec3 position, direction, right_axis;
             mat4 world_transform;

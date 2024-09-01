@@ -5,14 +5,13 @@
 namespace nos {
     camera3d::camera3d() :
         pitch(45),
-        base_heading(0),
         scale(1),
         affine_transform_ptr_xz(bn::sprite_affine_mat_ptr::create(affine_transform_xz)),
         affine_transform_ptr_yz(bn::sprite_affine_mat_ptr::create(affine_transform_yz))
     {}
 
     int camera3d::get_pitch() const { return pitch; }
-    int camera3d::get_heading() const { return base_heading; }
+    int camera3d::get_heading() const { return heading; }
     bn::fixed camera3d::get_scale() const { return scale; }
 
     const vec3& camera3d::get_position() const { return position; }
@@ -29,7 +28,6 @@ namespace nos {
 
     void camera3d::update_camera(const nos::vec3& target, int _pitch, int _heading, bn::fixed _scale) {
         pitch = _pitch;
-        base_heading = _heading;
         scale = _scale;
 
         heading = _heading;

@@ -20,7 +20,6 @@ namespace nos {
 
             const vec3& get_position() const;
             void set_position(const vec3& _position);
-            vec3 get_screen_position(const camera3d& camera) const;
 
             virtual void update(nos::camera3d& camera);
     };
