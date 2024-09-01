@@ -27,8 +27,6 @@ int main()
     player.set_position(nos::vec3(0, 0, 16));
     npc.set_position(nos::vec3(50, 50, 16));
 
-    // bn::sprite_ptr sprite = bn::sprite_items::fred_side_profile.create_sprite(50, 50);
-
     while(true)
     {
         // if (++heading >= 360) heading = 0;
@@ -70,6 +68,7 @@ int main()
         npc.update(camera);
         floor.update(camera);
         ceiling.update(camera);
+
         bn::core::update();
     }
 }

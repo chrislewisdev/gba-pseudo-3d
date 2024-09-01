@@ -27,16 +27,18 @@ namespace nos {
     const bn::sprite_affine_mat_ptr& camera3d::get_affine_transform_ptr_yz() const { return affine_transform_ptr_yz; }
 
     void camera3d::update_camera(const nos::vec3& target, int _pitch, int _heading, bn::fixed _scale) {
+        position = vec3(
+            target.x + -bn::degrees_lut_sin(_heading) * bn::degrees_lut_cos(_pitch),
+            target.y + bn::degrees_lut_cos(_heading) * bn::degrees_lut_cos(_pitch),
+            target.z + bn::degrees_lut_sin(_pitch)
+        );
+
+        // If camera orientation hasn't changed, no need to recalculate everything else
+        if (pitch == _pitch && scale == _scale && heading == _heading) return;
+
         pitch = _pitch;
         scale = _scale;
-
         heading = _heading;
-
-        position = vec3(
-            target.x + -bn::degrees_lut_sin(heading) * bn::degrees_lut_cos(pitch),
-            target.y + bn::degrees_lut_cos(heading) * bn::degrees_lut_cos(pitch),
-            target.z + bn::degrees_lut_sin(pitch)
-        );
 
         // We could probably recalculate all these things only when pitch/heading changes...
         direction = normalise(target - position);

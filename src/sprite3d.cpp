@@ -44,7 +44,7 @@ namespace nos {
             sprite->set_position(screen_position.x, -screen_position.y);
             // Only set sort order for visible sprites to save on sorting layers
             if (sprite->visible()) {
-                sprite->set_z_order(-screen_position.y.integer());
+                sprite->set_z_order(screen_position.y.integer());
             } else {
                 sprite->set_z_order(0);
             }
