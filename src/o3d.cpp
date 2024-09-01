@@ -35,9 +35,9 @@ namespace nos {
         constexpr int clip_bottom = -bn::display::height() / 2 - 32;
         const bool visible = !(
             screen_position.x < clip_left
-            || screen_position.x > clip_right
+            || screen_position.y > clip_right
             || screen_position.z < clip_bottom
-            || screen_position.z > clip_top
+            || screen_position.y > clip_top
         );
 
         // Butano already filters out off-screen sprites, but by using less sprite_ptrs we save on sorting layers
@@ -49,10 +49,10 @@ namespace nos {
         }
 
         if (sprite.has_value()) {
-            sprite->set_position(screen_position.x, screen_position.z);
+            sprite->set_position(screen_position.x, -screen_position.y);
             // Only set sort order for visible sprites to save on sorting layers
             if (sprite->visible()) {
-                sprite->set_z_order(-screen_position.z.integer());
+                sprite->set_z_order(-screen_position.y.integer());
             } else {
                 sprite->set_z_order(0);
             }
