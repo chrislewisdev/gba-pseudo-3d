@@ -1,0 +1,7 @@
+*.elf
+*.gba
+*.sav
+*.png
+build/
+assets-staging/
+external/
