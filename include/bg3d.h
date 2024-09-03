@@ -13,7 +13,7 @@ namespace sp3d {
             int height;
 
         public:
-            bg3d(const bn::affine_bg_item& bg_item, int _height = 0);
+            bg3d(const bn::affine_bg_item& bg_item, int _height = 0, int priority = 3);
             void update(sp3d::camera3d& camera);
     };
 }

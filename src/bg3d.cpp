@@ -3,11 +3,12 @@
 #include "bn_affine_bg_item.h"
 
 namespace sp3d {
-    bg3d::bg3d(const bn::affine_bg_item& bg_item, int _height) :
+    bg3d::bg3d(const bn::affine_bg_item& bg_item, int _height, int priority) :
         bg(bg_item.create_bg(0, 0)),
         height(_height)
     {
-        bg.set_wrapping_enabled(false);     
+        bg.set_wrapping_enabled(false);
+        bg.set_priority(priority);
     }
 
     void bg3d::update(sp3d::camera3d& camera) {

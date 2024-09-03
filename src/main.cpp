@@ -18,7 +18,7 @@ int main()
     sp3d::sprite3d player(bn::sprite_items::fred_side_profile);
     sp3d::sprite3d npc(bn::sprite_items::fred_side_profile);
     sp3d::bg3d floor(bn::affine_bg_items::garden_floor);
-    sp3d::bg3d ceiling(bn::affine_bg_items::garden_ceiling, 32);
+    sp3d::bg3d ceiling(bn::affine_bg_items::garden_ceiling, 32, 1);
 
     bool control_position = false;
     int heading = 0, pitch = 30;
