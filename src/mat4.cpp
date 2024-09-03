@@ -1,6 +1,6 @@
 #include "mat4.h"
 
-namespace nos {
+namespace sp3d {
     mat4 mat4::identity(vec3(1, 0, 0), vec3(0, 1, 0), vec3(0, 0, 1), vec3(0, 0, 0));
 
     mat4 operator*(const mat4& lhs, const mat4& rhs) {

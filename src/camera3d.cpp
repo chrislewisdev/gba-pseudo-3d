@@ -2,7 +2,7 @@
 
 #include "mat2.h"
 
-namespace nos {
+namespace sp3d {
     camera3d::camera3d() :
         pitch(45),
         scale(1),
@@ -26,7 +26,7 @@ namespace nos {
     const bn::sprite_affine_mat_ptr& camera3d::get_affine_transform_ptr_xz() const { return affine_transform_ptr_xz; }
     const bn::sprite_affine_mat_ptr& camera3d::get_affine_transform_ptr_yz() const { return affine_transform_ptr_yz; }
 
-    void camera3d::update_camera(const nos::vec3& target, int _pitch, int _heading, bn::fixed _scale) {
+    void camera3d::update_camera(const sp3d::vec3& target, int _pitch, int _heading, bn::fixed _scale) {
         position = vec3(
             target.x + -bn::degrees_lut_sin(_heading) * bn::degrees_lut_cos(_pitch),
             target.y + bn::degrees_lut_cos(_heading) * bn::degrees_lut_cos(_pitch),

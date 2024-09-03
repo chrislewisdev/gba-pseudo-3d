@@ -38,8 +38,8 @@ DATA        	:=  data
 GRAPHICS    	:=  graphics
 AUDIO       	:=  audio
 DMGAUDIO    	:=  dmg_audio
-ROMTITLE    	:=  Nos
-ROMCODE     	:=  NOS
+ROMTITLE    	:=  sp3d
+ROMCODE     	:=  SP3D
 USERFLAGS   	:=  -DBN_CFG_SPRITES_MAX_SORT_LAYERS=32
 USERCXXFLAGS	:=  
 USERASFLAGS 	:=  -DBN_CFG_SPRITES_MAX_SORT_LAYERS=32

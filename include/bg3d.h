@@ -5,7 +5,7 @@
 #include "vec3.h"
 #include "camera3d.h"
 
-namespace nos {
+namespace sp3d {
     class bg3d {
         private:
             vec3 position;
@@ -14,6 +14,6 @@ namespace nos {
 
         public:
             bg3d(const bn::affine_bg_item& bg_item, int _height = 0);
-            void update(nos::camera3d& camera);
+            void update(sp3d::camera3d& camera);
     };
 }

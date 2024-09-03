@@ -2,7 +2,7 @@
 
 #include "bn_math.h"
 
-namespace nos {
+namespace sp3d {
     mat2 mat2::identity(1, 0, 0, 1);
 
     mat2 mat2::scale(bn::fixed x, bn::fixed y) {

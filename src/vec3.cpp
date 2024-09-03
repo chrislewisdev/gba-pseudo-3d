@@ -2,7 +2,7 @@
 
 #include "bn_math.h"
 
-namespace nos {
+namespace sp3d {
     vec3 vec3::zero;
     vec3 vec3::right(1, 0, 0);
     vec3 vec3::up(0, 1, 0);

@@ -3,7 +3,7 @@
 #include "bn_core.h"
 #include "bn_fixed_point.h"
 
-namespace nos {
+namespace sp3d {
     class vec3 {
         public:
             bn::fixed_t<16> x, y, z;

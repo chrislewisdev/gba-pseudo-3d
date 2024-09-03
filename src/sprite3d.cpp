@@ -2,7 +2,7 @@
 
 #include "bn_display.h"
 
-namespace nos {
+namespace sp3d {
     sprite3d::sprite3d(const bn::sprite_item& _sprite_item)
         : position(0, 16, 0),
           sprite_item(&_sprite_item)
@@ -17,7 +17,7 @@ namespace nos {
         position = _position;
     }
 
-    void sprite3d::update(nos::camera3d& camera) {
+    void sprite3d::update(sp3d::camera3d& camera) {
         vec3 screen_position = camera.to_screen(position);
 
         // Check if sprite is on/off screen

@@ -7,7 +7,7 @@
 #include "vec3.h"
 #include "camera3d.h"
 
-namespace nos {
+namespace sp3d {
     class sprite3d {
         protected:
             vec3 position;
@@ -21,7 +21,7 @@ namespace nos {
             const vec3& get_position() const;
             void set_position(const vec3& _position);
 
-            virtual void update(nos::camera3d& camera);
+            virtual void update(sp3d::camera3d& camera);
     };
 }
 

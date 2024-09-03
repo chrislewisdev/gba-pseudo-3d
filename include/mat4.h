@@ -2,7 +2,7 @@
 
 #include "vec3.h"
 
-namespace nos {
+namespace sp3d {
     class mat4 {
         public:
             vec3 a, b, c, d;

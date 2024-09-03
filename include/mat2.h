@@ -2,7 +2,7 @@
 
 #include "bn_core.h"
 
-namespace nos {
+namespace sp3d {
     class mat2 {
         public:
             bn::fixed_t<16> a, b, c, d;

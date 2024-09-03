@@ -6,7 +6,7 @@
 #include "vec3.h"
 #include "mat4.h"
 
-namespace nos {
+namespace sp3d {
     class camera3d {
         private:
             int pitch, heading;
