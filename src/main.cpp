@@ -22,6 +22,7 @@ int main()
 
     bool control_position = false;
     int heading = 0, pitch = 30;
+    bn::fixed scale = 1;
     sp3d::vec3 camera_position;
 
     player.set_position(sp3d::vec3(0, 0, 16));
@@ -29,8 +30,6 @@ int main()
 
     while(true)
     {
-        // if (++heading >= 360) heading = 0;
-
         if (bn::keypad::l_pressed()) {
             control_position = !control_position;
         }
@@ -63,7 +62,13 @@ int main()
             if (heading > 360) heading -= 360;
         }
 
-        camera.update_camera(camera_position, pitch, heading, 1);
+        if (bn::keypad::a_held() && scale > bn::fixed(0.5)) {
+            scale -= 0.1;
+        } else if (bn::keypad::b_held() && scale < bn::fixed(1.5)) {
+            scale += 0.1;
+        }
+
+        camera.update_camera(camera_position, pitch, heading, scale);
         player.update(camera);
         npc.update(camera);
         floor.update(camera);
