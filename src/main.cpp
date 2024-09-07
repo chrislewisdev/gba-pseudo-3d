@@ -5,6 +5,7 @@
 #include "sprite3d.h"
 #include "camera3d.h"
 #include "bg3d.h"
+#include "wall3d.h"
 
 #include "bn_sprite_items_fred_side_profile.h"
 #include "bn_affine_bg_items_garden_floor.h"
@@ -19,6 +20,7 @@ int main()
     sp3d::sprite3d npc(bn::sprite_items::fred_side_profile);
     sp3d::bg3d floor(bn::affine_bg_items::garden_floor);
     sp3d::bg3d ceiling(bn::affine_bg_items::garden_ceiling, 32, 1);
+    sp3d::wall3d wall(sp3d::vec3(0, 0, 0), sp3d::vec3::forward);
 
     bool control_position = false;
     int heading = 0, pitch = 30;
@@ -73,6 +75,7 @@ int main()
         npc.update(camera);
         floor.update(camera);
         ceiling.update(camera);
+        wall.update(camera);
 
         bn::core::update();
     }

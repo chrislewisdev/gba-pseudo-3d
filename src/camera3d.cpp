@@ -84,7 +84,7 @@ namespace sp3d {
 
     void camera3d::update_transform_xz(const vec3& up_axis) {
         auto scale_matrix = mat2::scale_inverse(scale + bn::fixed(0.05), scale);
-        auto perspective_matrix = inverse(mat2(right_axis.x, right_axis.z, up_axis.x, up_axis.z));
+        auto perspective_matrix = inverse(mat2(-right_axis.x, right_axis.z, up_axis.x, up_axis.z));
         auto transform = scale_matrix * perspective_matrix;
 
         affine_transform_xz.unsafe_set_register_values(
@@ -93,12 +93,12 @@ namespace sp3d {
             transform.c.data() >> 8,
             transform.d.data() >> 8
         );
-        affine_transform_ptr_xz.set_attributes(affine_transform_xy);
+        affine_transform_ptr_xz.set_attributes(affine_transform_xz);
     }
 
     void camera3d::update_transform_yz(const vec3& up_axis) {
         auto scale_matrix = mat2::scale_inverse(scale + bn::fixed(0.05), scale);
-        auto perspective_matrix = inverse(mat2(right_axis.y, right_axis.z, up_axis.y, up_axis.z));
+        auto perspective_matrix = inverse(mat2(-right_axis.y, right_axis.z, up_axis.y, up_axis.z));
         auto transform = scale_matrix * perspective_matrix;
 
         affine_transform_yz.unsafe_set_register_values(

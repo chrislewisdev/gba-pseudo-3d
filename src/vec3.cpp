@@ -5,8 +5,8 @@
 namespace sp3d {
     vec3 vec3::zero;
     vec3 vec3::right(1, 0, 0);
-    vec3 vec3::up(0, 1, 0);
-    vec3 vec3::forward(0, 0, 1);
+    vec3 vec3::up(0, 0, 1);
+    vec3 vec3::forward(0, 1, 0);
 
     bn::fixed vec3::magnitude() const {
         return bn::sqrt(x*x + y*y + z*z);
