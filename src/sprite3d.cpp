@@ -27,8 +27,8 @@ namespace sp3d {
         constexpr int clip_bottom = -bn::display::height() / 2 - 32;
         const bool visible = !(
             screen_position.x < clip_left
-            || screen_position.y > clip_right
-            || screen_position.z < clip_bottom
+            || screen_position.x > clip_right
+            || screen_position.y < clip_bottom
             || screen_position.y > clip_top
         );
 
