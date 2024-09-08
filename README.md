@@ -2,7 +2,7 @@
 
 ![Demo](./demo.gif)
 
-This repo is a demo that illustrates a method for creating pseudo-3d graphics on the GBA. It uses [Butano](https://github.com/GValiente/butano) which handles most of the low-level business.
+This repo is a demo that illustrates a method for creating pseudo-3d graphics on the GBA, heavily inspired by the game Sonic Battle. It uses [Butano](https://github.com/GValiente/butano) which handles most of the low-level business.
 
 This code is largely based off of my team's [GBA Jam 2024](https://itch.io/jam/gbajam24) entry, [Sleep Paradox](https://staticlinkage.itch.io/sleep-paradox) - hence the name.
 
