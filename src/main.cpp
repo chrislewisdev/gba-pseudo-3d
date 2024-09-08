@@ -38,7 +38,7 @@ int main()
     // For controlling the camera
     bool control_position = false;
     int heading = 0, pitch = 30;
-    bn::fixed scale = 1;
+    bn::fixed scale = 1.3;
     sp3d::vec3 camera_position;
 
     while(true)

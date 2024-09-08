@@ -6,6 +6,12 @@ This repo is a demo that illustrates one method for creating pseudo-3d graphics 
 
 This code is largely based off of my team's [GBA Jam 2024](https://itch.io/jam/gbajam24) entry, [Sleep Paradox](https://staticlinkage.itch.io/sleep-paradox).
 
+## Controls
+
+- Arrow keys - move camera
+- A/B - zoom in/out
+- L - switch between moving the camera angle and moving the camera position
+
 ## Credits
 
 I probably never would have been able to figure all this out without discovering this [Sonic Battle (GBA) Renderer Series](https://fouramgames.com/blog/sonic-battle-renderer) by 4AM Games. They also have a demo written for PC/web: https://github.com/Ohmnivore/battle.
@@ -17,6 +23,14 @@ The math involved here relies a lot on core 3D concepts like vectors/matrices, b
 3D math is not my strongest point, and as such there are probably some mistakes/kludges in this code. Most notably is that the camera calculations only ever really work when it is positioned 1 unit away from its target using pitch/heading values. If you try to place the camera in an arbitrary position and have it track its target, the whole thing breaks.
 
 ## Developer notes
+
+### Sprite limits
+
+When zoomed out and viewed at lower angles, you will quickly find that sprites start to get cut off:
+
+![](./limits.png)
+
+This is due to hitting the limit of how many affine sprites can be displayed on one line on the GBA. This can only really be avoided by limiting the amount of walls in your scenes, or controlling your camera placement so as to reduce the number on screen that are on overlapping scan lines.
 
 ### Co-ordinate space
 
