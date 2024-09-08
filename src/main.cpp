@@ -79,9 +79,9 @@ int main()
         // Zoom controls. The more you zoom out, the more likely you are to run out of sprite sort layers
         // and to see walls disappearing from too many sprites showing on one scanline.
         if (bn::keypad::a_held() && scale > bn::fixed(0.8)) {
-            scale -= 0.1;
+            scale -= 0.05;
         } else if (bn::keypad::b_held() && scale < bn::fixed(1.5)) {
-            scale += 0.1;
+            scale += 0.05;
         }
 
         camera.update_camera(camera_position, pitch, heading, scale);
