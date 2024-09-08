@@ -56,7 +56,7 @@ namespace sp3d {
             vec3(right_axis.y, up_axis.y, direction.y),
             vec3(right_axis.z, up_axis.z, direction.z),
             // This was supposed to be the -position vector, but my maths must be off somehow because it wasn't working correctly
-            // Instead we just apply the translation in world_object.cpp before transformation
+            // Instead we just apply the translation in sprite3dcpp before transformation
             vec3::zero 
         );
         
